@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Flot Examples: AJAX</title>
+	<link href="example.css" rel="stylesheet" type="text/css">
+	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../../excanvas.min.js"></script><![endif]-->
+	<script language="javascript" type="text/javascript" src="../java/jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="../java/jquery.flot.js"></script>
+	<script type="text/javascript">
+
+	$(function() {
+	
+
+
+		var options = {
+			lines: {
+				show: true
+			},
+			points: {
+				show: false
+			},
+			grid: {
+				hoverable: true,
+				clickable: true
+			},
+			xaxis: {
+				
+				tickDecimals: 0,
+				tickSize: 1000
+			},
+			 legend: {
+
+        noColumns: 2,
+        container: $("#chartLegend")
+    },
+
+    
+    colors: ["#9b1a1a", "#1076d4"],
+    
+
+			
+};
+
+
+		var data = [];
+
+
+		$.plot("#placeholder", data, options);
+	var alreadyFetched = {};
+
+		$("button.fetchSeries").click(function () {
+
+			function onDataReceived(series) {
+
+				var firstcoordinate = "(" + series.data[0][0] + ", " + series.data[0][1] + ")";
+
+
+				// Push the new data onto our existing data array
+
+				if (!alreadyFetched[series.label]) {
+					alreadyFetched[series.label] = true;
+					data.push(series);
+				}
+
+				$.plot("#placeholder", data, options);
+
+			}
+
+			$.ajax({
+				url: "data.php",
+				type: "GET",
+				dataType: "json",
+				success: onDataReceived
+			});
+		});
+		// Initiate a recurring data update
+		var iteration = 0;
+		$("button.dataUpdate").click(function () {
+
+			data = [];
+			
+			$.plot("#placeholder", data, options);
+			alreadyFetched = {};
+			function fetchData() {
+
+				++iteration;
+
+				function onDataReceived(series) {
+					$("button.fetchSeries:first").click()
+					data = [ series ];
+					$.plot("#placeholder", data, options);
+
+					alreadyFetched = {};
+				}
+
+				$.ajax({
+					url: "data2.php",
+					type: "GET",
+					dataType: "json",
+					success: onDataReceived
+				});
+			
+			
+			$("#placeholder").bind("plothover", function (event, pos, item) 
+			{
+          var temp = "Y=[" + item.datapoint[1].toFixed(2) + "]"
+		    var date = new Date((item.datapoint[0].toFixed(0))*1000);
+		    var hours = "Time=[" + date.getDate() + "/" + date.getHours();
+		    var minutes = ":" + date.getMinutes() + ":" + date.getSeconds() + "]";
+		    $("#hovertemp").text(temp);
+		    $("#hoverdata").text(hours);
+		    $("#hoverdata1").text(minutes);
+
+			});
+				setTimeout(fetchData, 30000);
+			}
+			setTimeout(fetchData, 1000);
+
+		});
+
+	});
+window.onload = function () {
+    document.querySelector('button.dataUpdate').click();
+}
+	</script>
+	
+<body>
+<body style="color: rgb(0, 0, 0); background-color: black;"
+alink="#000099" link="#000099" vlink="#990099">
+<div class="demo-container"style="float: left;">
+<form action="graph2.php" method="post">
+  <select name="sensor" style="float: left;">
+  <option value="0">Select</option> 
+  <option value="1">Sensor1</option>
+  <option value="2">Sensor2</option>
+  <option value="3">Sensor3</option>
+  <option value="4">Sensor4</option>
+  <option value="5">Sensor5</option>
+  <option value="6">Sensor6</option>
+  <option value="7">Sensor7</option>
+  <option value="8">Sensor8</option>
+  <option value="9">Sensor9</option>
+  <option value="10">Sensor10</option>
+  <option value="11">Sensor11</option>
+  <option value="12">Sensor12</option>
+  <option value="13">Sensor13</option>
+  <option value="14">Sensor14</option>
+  <option value="15">Sensor15</option>
+
+
+</select> 
+<button value="Save" name="sensor1" style="float: left;"><small><strong>Select</small></strong></button>
+
+</form>	
+<form action="graph1.php" method="post">
+  <select name="sensor" style="float: left;">
+  <option value="0">Select</option> 
+  <option value="1">Sensor1</option>
+  <option value="2">Sensor2</option>
+  <option value="3">Sensor3</option>
+  <option value="4">Sensor4</option>
+  <option value="5">Sensor5</option>
+  <option value="6">Sensor6</option>
+  <option value="7">Sensor7</option>
+  <option value="8">Sensor8</option>
+  <option value="9">Sensor9</option>
+  <option value="10">Sensor10</option>
+  <option value="11">Sensor11</option>
+  <option value="12">Sensor12</option>
+  <option value="13">Sensor13</option>
+  <option value="14">Sensor14</option>
+  <option value="15">Sensor15</option>
+
+
+</select> 
+<button value="Save" name="sensor1" style="float: left;"><small><strong>Select</small></strong></button>
+
+</form>	
+<form action="scale3.php" method="post" style="float: left;"><a href="../index.html"  
+				style="text-decoration:underline;"
+				><font color="blue"><big>Main</big></font></a> 
+				
+				
+		
+<strong>Scale</strong>&nbsp;<input name="SC1" type="text";>&nbsp;<small>hrs</small>
+<button value="Save" name="sensor1"><strong>Set</strong></button>&nbsp;
+</form>
+
+<span id="hovertemp"></span><span id="hoverdata"></span><span id="hoverdata1"></span><p>&nbsp;<div id="chartLegend" ></div>
+		
+			<div id="placeholder" class="demo-placeholder"></div>
+			
+
+
+<button class="dataUpdate"style="visibility:hidden;";></button><button class="fetchSeries"style="visibility:hidden;"></button>
+</body>
+
+</html>

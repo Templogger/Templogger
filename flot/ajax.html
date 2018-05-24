@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Flot Examples: AJAX</title>
+	<link href="example1.css" rel="stylesheet" type="text/css">
+	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../../excanvas.min.js"></script><![endif]-->
+	<script language="javascript" type="text/javascript" src="../java/jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="../java/jquery.flot.js"></script>
+	<script type="text/javascript">
+
+	$(function() {
+	
+
+
+		var options = {
+			lines: {
+				show: true
+			
+			},
+			points: {
+				show: false
+			},
+			grid: {
+				hoverable: true,
+				clickable: true
+			},
+			xaxis: {
+				
+				tickDecimals: 0,
+				tickSize: 1000
+			},
+			 legend: {
+
+        noColumns: 1,
+        container: $("#chartLegend")
+    },
+    
+    colors: ["#6b0909", "#33399"],
+    
+
+			
+};
+
+		var data = [];
+		
+
+		$.plot("#placeholder", data, options);
+
+
+
+		// Initiate a recurring data update
+		var iteration = 0;
+		
+		$("button.dataUpdate").click(function () {
+
+			data = [];
+			
+			$.plot("#placeholder", data, options);
+			var al = {};
+			function fetchData() {
+				
+				++iteration;
+				
+				function onDataReceived(series) {
+					data = [ series ];
+
+
+					$.plot("#placeholder", data, options);
+				}
+
+				$.ajax({
+					url: "data.php",
+					type: "GET",
+					dataType: "json",
+					success: onDataReceived
+				});
+		$("<div id='tooltip'></div>").css({
+			position: "absolute",
+			display: "none",
+			border: "1px solid #fdd",
+			padding: "2px",
+			"background-color": "#fee",
+			opacity: 0.80
+		}).appendTo("body");
+		
+			$("#placeholder").bind("plothover", function (event, pos, item) 
+			{
+          var temp = "Y=[" + item.datapoint[1].toFixed(2) + "]"
+		    var date = new Date((pos.x.toFixed(0))*1000);
+		    var hours = "Time=[" + date.getDate() + "/" + date.getHours();
+		    var minutes = ":" + date.getMinutes() + ":" + date.getSeconds() + "]";
+		    $("#hovertemp").text(temp);
+		    $("#hoverdata").text(hours);
+		    $("#hoverdata1").text(minutes);
+	    
+
+			});
+
+				setTimeout(fetchData, 30000);
+			}
+
+			setTimeout(fetchData, 1000);
+		});
+
+	});
+window.onload = function () {
+    document.querySelector('button.dataUpdate').click();
+}
+	</script>
+	
+<body>
+<body style="color: rgb(0, 0, 0); background-color: black;"
+alink="#000099" link="#000099" vlink="#990099">
+<div class="demo-container"style="float: left;">
+<a href="../index.html"style="text-decoration: none; float:left;"><font color="000F66"><big>&nbsp;&nbsp;<strong>MainMenu</strong></big> &nbsp; </big></font></a>
+<form action="graph.php" method="post">
+  <select name="sensor" style="float: left;">
+  <option value="0">Select</option> 
+  <option value="1">Sensor1</option>
+  <option value="2">Sensor2</option>
+  <option value="3">Sensor3</option>
+  <option value="4">Sensor4</option>
+  <option value="5">Sensor5</option>
+  <option value="6">Sensor6</option>
+  <option value="7">Sensor7</option>
+  <option value="8">Sensor8</option>
+  <option value="9">Sensor9</option>
+  <option value="10">Sensor10</option>
+  <option value="11">Sensor11</option>
+  <option value="12">Sensor12</option>
+  <option value="13">Sensor13</option>
+  <option value="14">Sensor14</option>
+  <option value="15">Sensor15</option>
+</select> 
+<button value="Save" name="sensor1" style="float: left;"><small><strong>Select</small></strong></button>
+
+</form>
+<form action="scale2.php" method="post"> &nbsp; &nbsp; &nbsp;
+Scale&nbsp;<input name="SC1" type="text";>&nbsp;<small>hrs</small>
+<button value="Save" name="sensor1">Set</button> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="hovertemp"></span>&nbsp;
+<span id="hoverdata"></span><span id="hoverdata1"></span>&nbsp;<div < id="chartLegend" style="margin-left: 600px;"> ></div>
+</form>
+<div id="placeholder" class="demo-placeholder"></div>
+
+
+<button class="dataUpdate";></button><button class="fetchSeries"></button>
+
+
+</body>
+
+</html>

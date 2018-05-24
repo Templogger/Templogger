@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.dropbtn {
+    background-color: #0B2161;
+    color: orange;
+    padding: 10px;
+    font-size: 18px;
+    font-weight:1000;
+    border-width:medium; 
+    border-radius: 25px;
+    border-color: #8A0808;
+    border;
+    cursor: pointer;
+    			   text-shadow:
+   				  -1px -1px 0 #000000,
+  					  1px -1px 0 #000000,
+   				  -1px 1px 0 #000000,
+  					  1px 1px 0 #000000; 
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #ff0000;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: lightblue;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 6;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: inline-table;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+</style>
+</head>
+<body>
+<body
+
+style="color: rgb(0, 0, 0); background-color: #BDBDBD"
+alink="#000099" link="#000099" vlink="#990099">
+<div id="list2">
+  <iframe src="offset.php" frameborder="0" height="630"
+      width="%"style="float: right;"></iframe>
+</div>
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Sensors</button>
+
+<form  action="cali.php" method="post">
+  <div id="myDropdown" class="dropdown-content">
+   Calibrate sensor <br>
+    <input type="checkbox" name="S4" type="text"> Use only REF:1</a><br>
+    <input type="checkbox" name="S5" type="text"> Use only REF:2</a><br>   
+    <input type="checkbox" name="S6" type="text"> Use AVR of both</a><br>   
+    <a href="#contact"><button value="Start" name="Start" style="float: left;">Calibrate</button></a>
+    
+</form>
+  </div>
+</div>
+
+
+<div class="dropdown">
+<button onclick="myFunction1()" class="dropbtn">Reference values</button>
+
+<form action="cal.php" method="post">
+  <div id="myDropdown1" class="dropdown-content">T values</button></a>
+   Reference sensor <br>
+    <input type="checkbox" name="R1" type="text"> Sensor:1</a><br>
+    <input type="checkbox" name="R2" type="text"> Sensor:2</a><br>         
+    <a href="#contact"><button value="Start" name="Start" style="float: left;">GET values</button></a>
+
+</form>
+ 
+  </div>
+</div>
+
+ <a href="../index.html"><font color="#0B0B61"><big><big>Main Menu</big></big> </font></a>
+ <br>Input offset manually
+<form action="offset1.php" method="post">
+<input name="offset"type="text" >
+  <select name="sensor">
+  <option value="0">Select</option> 
+  <option value="1">sensor1</option>
+  <option value="2">sensor2</option>
+  <option value="3">sensor3</option>
+  <option value="4">sensor4</option>
+  <option value="5">sensor5</option>
+  <option value="6">sensor6</option>
+  <option value="7">sensor7</option>
+  <option value="8">sensor8</option>
+  <option value="9">sensor9</option>
+  <option value="10">sensor10</option>
+  <option value="11">sensor11</option>
+  <option value="12">sensor12</option>
+  <option value="13">sensor13</option>
+  <option value="14">sensor14</option>
+  <option value="15">sensor15</option>
+  <option value="16">sensor16</option>
+</select> 
+<button value="Save" name="sensor1"><small><strong>set</small></strong></button>
+
+</form>
+
+
+
+
+<form action="tref.php" method="post">
+Input refrence 1 manualy<br> 
+<input name="tref1"type="text" >
+<button value="Save" name="Start">Set</button></a>
+</form>
+
+<form action="tref1.php" method="post">
+Input refrence 2 manualy<br> 
+<input name="tref2"type="text" >
+<button value="Save" name="Start">Set</button></a>
+</form>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+
+    document.getElementById("myDropdown").classList.toggle("show");
+
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+
+      }
+    }
+  }
+}
+function myFunction1() {
+
+    document.getElementById("myDropdown1").classList.toggle("show");
+
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+
+      }
+    }
+  }
+}
+
+</script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

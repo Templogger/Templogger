@@ -1,0 +1,59 @@
+* {	padding: 0; margin: 0;  }
+
+
+body {
+	font: 10px/0.3em "proxima-nova", Comic Sans MS, Arial, sans-serif;
+
+}
+
+
+
+.demo-container {
+
+	width: 280px;
+	height: 270px;
+	background: #000000;
+   border-radius: 12px;
+   border-style: solid;
+   border-color: #0026ff;
+   border-width: 2px;
+}
+
+.demo-placeholder {
+	width: 100%;
+	height: 100%;
+	font-size: 29px;
+	line-height: 0.9em;
+
+
+
+
+}
+
+
+
+
+.flot-y-axis{
+	color: #B6B6B4;
+	line-height: 0.0em
+
+}
+.tickLabel { 	font-size: 0px } 
+.flot-x-axis {
+	color: #B6B6B4;
+	line-height: 6.5em
+}
+.tickLabel { font-size: 0px }
+
+
+
+
+
+
+
+
+
+
+
+
+

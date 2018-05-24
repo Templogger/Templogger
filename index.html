@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    * {
+      font-family: sans-serif;
+    }
+.dropbtn {
+    background-color: #0B2161;
+    color: orange;
+    padding: 10px;
+    font-size: 18px;
+    font-weight:1000;
+    border-width:medium; 
+    border-radius: 25px;
+    border-color: #8A0808;
+    border;
+    cursor: pointer;
+    			   text-shadow:
+   				  -1px -1px 0 #000000,
+  					  1px -1px 0 #000000,
+   				  -1px 1px 0 #000000,
+  					  1px 1px 0 #000000; 
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2E2EFE;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    border: 20px;
+    border-color: white;
+    
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    border: 20px;
+    border-width:thick; ;
+    font-size: 23px;
+    border-radius: 15px;
+    border-color: white;
+    background-color: #77a8d1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 6;
+}
+input[type="text"], textarea {
+
+  background-color : #d1d1d1; 
+
+}
+
+
+input[type='checkbox']:checked {
+    background: #abd;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 9px 9px;
+    text-decoration: none;
+    display: inline-table;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+span {
+	 font-size: 1.1em;
+	 background-color: #A4A4A4;
+	 border-radius: 12px;
+    padding: 0px;
+    border: 2px solid black;
+    display: inline-block;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+<body 
+style="color: rgb(0, 0, 0); font-family: sans-serif; background-image:url('back.jpg'); background-repeat: no-repeat ; background-color: #000000; "
+alink="#000099" link="#000099" vlink="#990099">
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Sensors</button>
+
+
+  <div id="myDropdown" class="dropdown-content">
+  <form
+
+><iframe src="sensors/onoff.php" style="float: left;"frameborder="0" height="300" width="220" ></iframe> </p>
+
+</form>
+  <form  action="sensors/sensors.php" method="post">
+    <input type="checkbox" id="S1" name="S1"  </a>
+    <label for="S1"><span>Sensor:1</span></label>
+    <input type="checkbox" id="S2" name="S2" type="text"> </a>
+    <label for="S2"><span>Sensor:2</span></label>
+    <input type="checkbox" id="S3" name="S3" type="text"> </a>
+    <label for="S3"><span>Sensor:3</span></label><br>
+    <input type="checkbox" id="S4" name="S4" type="text"> </a>
+    <label for="S4"><span>Sensor:4</span></label>       
+    <input type="checkbox" id="S5" name="S5" type="text"> </a>
+    <label for="S5"><span>Sensor:5</span></label>
+    <input type="checkbox" id="S6" name="S6" type="text"> </a>
+    <label for="S6"><span>Sensor:6</span></label><br>   
+    <input type="checkbox" id="S7" name="S7" type="text"> </a>
+    <label for="S7"><span>Sensor:7</span></label>
+    <input type="checkbox" id="S8" name="S8" type="text"> </a>
+    <label for="S8"><span>Sensor:8</span></label> 
+    <input type="checkbox" id="S9" name="S9" type="text"> </a>
+    <label for="S9"><span>Sensor:9</span></label><br>
+    <input type="checkbox" id="S10" name="S10" type="text"> </a>
+    <label for="S10"><span>Sensor:10</span></label>       
+    <input type="checkbox" id="S11" name="S11" type="text"> </a>
+    <label for="S11"><span>Sensor:11</span></label>
+    <input type="checkbox" id="S12" name="S12" type="text"> </a>
+    <label for="S12"><span>Sensor:12</span></label><br> 
+    <input type="checkbox" id="S13" name="S13" type="text"> </a>
+    <label for="S13"><span>Sensor:13</span></label>       
+    <input type="checkbox" id="S14" name="S14" type="text"> </a>
+    <label for="S14"><span>Sensor:14</span></label>
+    <input type="checkbox" id="S15" name="S15" type="text"> </a>
+    <label for="S15"><span>Sensor:15</span></label>   
+    <button value="Save" name="Start" style="float: left;"> <font size="6">Initlize<font> </button>
+    ------------------------------------------------------------------
+        <a href="/sensors/config.html"><span>Sensor Setup</span></a>
+    </form>
+  </div>
+</div>
+
+<div class="dropdown">
+<button onclick="myFunction1()" class="dropbtn">Thresholds</button>
+
+<form action="Thresholds/thresholds.php" method="post">
+  <div id="myDropdown1" class="dropdown-content">
+  Select Sensor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="S1" style "float: center;">
+  <option value="1">Sensor 1</option>
+  <option value="2">Sensor 2</option>
+  <option value="3">Sensor 3</option>
+  <option value="4">Sensor 4</option>
+  <option value="5">Sensor 5</option>
+  <option value="6">Sensor 6</option>
+  <option value="7">Sensor 7</option>
+  <option value="8">Sensor 8</option>
+  <option value="9">Sensor 9</option>
+  <option value="10">Sensor 10</option>
+  <option value="11">Sensor 11</option>
+  <option value="12">Sensor 12</option>
+  <option value="13">Sensor 13</option>
+  <option value="14">Sensor 14</option>
+  <option value="15">Sensor 15</option> </select><br>
+  Upper_Threshold  <input type="text" name="T1" type="text"></a><br><br>    
+  Lower_Threshold  <input type="text" name="T2" type="text"></a><br>
+  -----------------------------------------------------------
+
+
+   
+ <button value="Save1" name="Thresh" style="float: center;"><font size="4">Apply<font></button></a><br>&nbsp;&nbsp;
+</form>
+ 
+  </div>
+</div>
+
+
+<div class="dropdown">
+<button onclick="myFunction2()" class="dropbtn">Graphs</button>
+<div id="myDropdown2" class="dropdown-content">
+  
+<a href="/flot/ajax.html"><span>&nbsp;&nbsp;1 plot&nbsp;&nbsp;  &nbsp;graph</span></a>
+<a href="/flot/ajax22.html"><span>&nbsp;&nbsp;2 plot&nbsp;&nbsp;  &nbsp;graph</span></a>
+
+
+  </div>
+</div>
+<div class="dropdown">
+<button onclick="myFunction3()" class="dropbtn">Data</button>
+  <div id="myDropdown3" class="dropdown-content">
+  
+<a href="Data/caldata.php"><span>Calibration Data</span></a>
+<a href="/Data/Log.php"><span>Logger data</span></a>
+<a href="/Data/write.php"><span>SaveTemperatureData<br>(To usb)</span></a>
+<a href="/Data/write3.php"><span>SaveTemperatureData<br>(And download)</span></a>
+<a href="/Data/write2.php"><span>SaveCalibrationData</span></a>
+
+
+  </div>
+
+
+</div>
+<div class="dropdown">
+<button onclick="myFunction4()" class="dropbtn">Job</button>
+  <div id="myDropdown4" class="dropdown-content">
+<form action="jobData/Jupdate.php" method="post">
+&nbsp;&nbsp;Number:<br>&nbsp;<input name="jobn" type="text"><br>
+&nbsp;&nbsp;Description:<br>&nbsp;<input name="jobd" type="text"><br>
+&nbsp;&nbsp;Location:<br>&nbsp;<input name="jobl" type="text"><br>
+&nbsp;&nbsp;Chamber:<br>&nbsp;<input name="cham" type="text"><br>
+&nbsp;&nbsp;Serial:<br>&nbsp;<input name="ser" type="text">
+-------------------------
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button value="Save" name="Start" style="center: left;"><font size="5"> Set<font></button></p>
+</form>
+
+
+  </div>
+
+</div>
+<div class="dropdown">
+<button onclick="myFunction5()" class="dropbtn">Logger</button>
+  <div id="myDropdown5" class="dropdown-content">
+
+<form action="Logger/Logger.php" method="post">
+    <input type="checkbox" id="l8" name="l8" value="on"></a>  
+    <label for="l8"><span>Every 15 seconds</span></label><br>      
+    <input type="checkbox" id="l7" name="l7" value="on"> </a>
+    <label for="l7"><span>Every 30 seconds</span></label><br>          
+    <input type="checkbox" id="l6" name="l6" value="on"></a>    
+    <label for="l6"><span>Every minuet</label><br>          
+    <input type="checkbox" id="l5" name="l5" value="on"></a> 
+    <label for="l5"><span>Every 2 minuets</label><br>          
+    <input type="checkbox" id="l4" name="l4" value="on"></a>
+    <label for="l4"><span>Every 5 minuets</label><br>          
+    <input type="checkbox" id="l3" name="l3" value="on"> </a>
+    <label for="l3"><span>Every 15 minuets</label><br>          
+    <input type="checkbox" id="l2" name="l2" value="on"> </a>  
+    <label for="l2"><span>Every 30 minuets</label><br>                                        
+    <input type="checkbox" id="l1" name="l1" value="on"> </a>
+    <label for="l1"><span>Every hour</span></label><br>    
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button value="l" name="l" style="float: centre;"><font size="4"> Start<font></button>
+<button value="Stop" name="Stop" style="float: centre;"><font size="4"> Stop<font></button>
+</form>
+--------------------------------------
+<a href="calibration/calibrate.html"> <span><font color= "#000000" size= "5">Calibration</font></span></a>
+<a href="admin/admin.html"><span><font color= "#000000" size= "5">Admin</font></span></a>
+  </div>
+
+
+</div>
+<div class="dropdown">
+<button onclick="myFunction6()" class="dropbtn">Variables</button>
+  <div id="myDropdown6" class="dropdown-content">
+
+<form action="E-mail/email.php" method="post">
+E-mail to: <input name="email" type="text">
+<button value="4" name="4" style="float: left;"> Set</button>
+</form><br>
+-----------------------
+<form action="Logger/delay.php" method="post">
+alarm delay (sec)<input name="run" type="text">
+<button value="Save2" name="Stop" style="float: left;"> Set </button><br><br>
+</form><br>
+</div>
+</div>
+
+
+
+
+
+
+<div id="list2">
+<form
+><iframe src="dash/ltemp.html" style="float: left" frameborder="0" height="300" width="290" ></iframe> </p>
+</form> 
+
+</div>
+<div id="list5">
+<form
+><iframe src="dash/uptime.php" style="float: top;"frameborder="0" height="60" width="160" ></iframe> </p>
+
+</form>
+</div>
+
+
+<div id="jobd">
+<form
+><iframe src="jobData/jobData.php" style="float: bottom;"frameborder="0" height="250" width="450" ></iframe> </p>
+</form>
+</div>
+
+
+<div id="list4">
+
+<form
+
+><iframe src="dash/time.php" style="float: left;"frameborder="0" height="30"
+      width="700" ></iframe> </p>
+
+
+</form>
+</div>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+
+    document.getElementById("myDropdown").classList.toggle("show");
+
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+
+      }
+    }
+  }
+}
+function myFunction1() {
+
+    document.getElementById("myDropdown1").classList.toggle("show");
+
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+
+      }
+    }
+  }
+}
+function myFunction2() {
+
+    document.getElementById("myDropdown2").classList.toggle("show");
+
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+      }
+    }
+  }
+}
+function myFunction3() {
+
+    document.getElementById("myDropdown3").classList.toggle("show");
+
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+      }
+    }
+  }
+}
+function myFunction4() {
+
+    document.getElementById("myDropdown4").classList.toggle("show");
+
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+      }
+    }
+  }
+}
+function myFunction5() {
+
+    document.getElementById("myDropdown5").classList.toggle("show");
+
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+      }
+    }
+  }
+}
+function myFunction6() {
+
+    document.getElementById("myDropdown6").classList.toggle("show");
+
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+      }
+    }
+  }
+}
+</script>
+
+</body>
+
+</html>
